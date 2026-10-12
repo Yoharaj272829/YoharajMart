@@ -259,6 +259,8 @@ footer{padding:28px 15px;border-top:1px solid var(--line);color:#6f776b;backgrou
             </button>
         </div>
 
+        <p class="password-hint">Use 8+ characters with an uppercase letter, lowercase letter, number and symbol.</p>
+
         <button onclick="resetPassword()">Change Password</button>
     </section>
 
@@ -280,6 +282,8 @@ footer{padding:28px 15px;border-top:1px solid var(--line);color:#6f776b;backgrou
             <input id="regPassword" type="password" placeholder="Enter password">
             <button type="button" class="password-toggle" onclick="togglePassword('regPassword', this)">Show</button>
         </div>
+
+        <p class="password-hint">Password must include 8+ characters, uppercase, lowercase, number and symbol.</p>
 
         <label>Account Type</label>
         <select id="regRole">
@@ -469,6 +473,17 @@ footer{padding:28px 15px;border-top:1px solid var(--line);color:#6f776b;backgrou
 
 
 
+<div id="passwordWarningModal" class="modal-overlay" aria-hidden="true">
+  <section class="password-modal" role="alertdialog" aria-modal="true" aria-labelledby="passwordWarningTitle" aria-describedby="passwordWarningText">
+    <div class="warning-mark" aria-hidden="true">!</div>
+    <p class="modal-eyebrow">PASSWORD CHECK</p>
+    <h2 id="passwordWarningTitle">Your password needs a quick fix</h2>
+    <p id="passwordWarningText">Please update the password to meet all requirements before continuing.</p>
+    <ul id="passwordRuleList" class="password-rules"></ul>
+    <button type="button" onclick="closePasswordWarning()">I'll fix it</button>
+  </section>
+</div>
+
 <script>
 let currentUser = null;
 let editingProductId = null;
@@ -565,6 +580,71 @@ function showMessage(text) {
         box.innerHTML = "";
     }, 3500);
 }
+
+
+const PASSWORD_RULES = [
+    { label: "At least 8 characters", test: value => value.length >= 8 },
+    { label: "At least one uppercase letter (A–Z)", test: value => /[A-Z]/.test(value) },
+    { label: "At least one lowercase letter (a–z)", test: value => /[a-z]/.test(value) },
+    { label: "At least one number (0–9)", test: value => /[0-9]/.test(value) },
+    { label: "At least one symbol (for example !, @, # or $)", test: value => /[^A-Za-z0-9]/.test(value) }
+];
+
+function isStrongPassword(value) {
+    return PASSWORD_RULES.every(rule => rule.test(value));
+}
+
+function showPasswordWarning(fieldId, customMessage = "") {
+    const input = fieldId ? document.getElementById(fieldId) : null;
+    const value = input ? input.value : "";
+    if (input) {
+        input.classList.add("is-invalid");
+        input.setAttribute("aria-invalid", "true");
+    }
+
+    document.getElementById("passwordWarningTitle").textContent =
+        customMessage ? "Check your password" : "Your password needs a quick fix";
+    document.getElementById("passwordWarningText").textContent =
+        customMessage || "This password doesn't meet every security requirement. Fix the items marked below and try again.";
+    document.getElementById("passwordRuleList").innerHTML =
+        PASSWORD_RULES.map(rule => {
+            const passed = rule.test(value);
+            return '<li class="' + (passed ? "rule-pass" : "") + '">' +
+                escapeHtml(rule.label) + '</li>';
+        }).join("");
+
+    const modal = document.getElementById("passwordWarningModal");
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+    const closeButton = modal.querySelector("button");
+    if (closeButton) closeButton.focus();
+}
+
+function closePasswordWarning() {
+    const modal = document.getElementById("passwordWarningModal");
+    if (!modal) return;
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+    const input = document.querySelector("#regPassword.is-invalid, #newPassword.is-invalid");
+    if (input) input.focus();
+}
+
+["regPassword", "newPassword"].forEach(id => {
+    const input = document.getElementById(id);
+    if (!input) return;
+    input.addEventListener("input", () => {
+        if (isStrongPassword(input.value)) {
+            input.classList.remove("is-invalid");
+            input.setAttribute("aria-invalid", "false");
+        }
+    });
+});
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closePasswordWarning();
+});
 
 function updateNav() {
     document.getElementById("guestNav").classList.add("hidden");
@@ -733,16 +813,8 @@ async function resetPassword() {
     const newPassword =
         document.getElementById("newPassword").value;
 
-    if (
-        newPassword.length < 8 ||
-        !/[A-Z]/.test(newPassword) ||
-        !/[a-z]/.test(newPassword) ||
-        !/[0-9]/.test(newPassword) ||
-        !/[^A-Za-z0-9]/.test(newPassword)
-    ) {
-        showMessage(
-            "Password needs 8+ characters, uppercase, lowercase, number and symbol"
-        );
+    if (!isStrongPassword(newPassword)) {
+        showPasswordWarning("newPassword");
         return;
     }
 
@@ -799,14 +871,8 @@ async function register() {
         return;
     }
 
-    if (
-        password.length < 8 ||
-        !/[A-Z]/.test(password) ||
-        !/[a-z]/.test(password) ||
-        !/[0-9]/.test(password) ||
-        !/[^A-Za-z0-9]/.test(password)
-    ) {
-        showMessage("Password needs 8+ characters, uppercase, lowercase, number and symbol");
+    if (!isStrongPassword(password)) {
+        showPasswordWarning("regPassword");
         return;
     }
 
