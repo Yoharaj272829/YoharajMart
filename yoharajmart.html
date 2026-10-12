@@ -8,528 +8,146 @@
 
 
 <style>
-:root{
-    --primary:#173b6c;
-    --primary-dark:#0f294d;
-    --accent:#f4b400;
-    --bg:#f5f7fa;
-    --surface:#ffffff;
-    --surface-soft:#f8fafc;
-    --text:#172033;
-    --muted:#667085;
-    --border:#dfe5ec;
-    --danger:#c62828;
-    --success:#1f7a4d;
-    --shadow:0 8px 24px rgba(16,24,40,.08);
-}
 
-*{
-    box-sizing:border-box;
-}
-
-body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:var(--bg);
-    color:var(--text);
-}
-
-header{
-    min-height:68px;
-    padding:12px 5%;
-    background:var(--surface);
-    border-bottom:1px solid var(--border);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-    position:sticky;
-    top:0;
-    z-index:100;
-}
-
-header h2{
-    margin:0;
-    font-size:24px;
-    color:var(--primary);
-    letter-spacing:.2px;
-}
-
-nav{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    flex-wrap:wrap;
-}
-
-button{
-    border:1px solid transparent;
-    background:var(--primary);
-    color:white;
-    border-radius:8px;
-    padding:10px 16px;
-    cursor:pointer;
-    font-weight:600;
-    transition:.2s ease;
-}
-
-button:hover{
-    background:var(--primary-dark);
-    transform:translateY(-1px);
-}
-
-nav button{
-    background:transparent;
-    color:var(--primary);
-    border-color:var(--border);
-}
-
-nav button:hover{
-    background:#eef3f8;
-    transform:none;
-}
-
-.container{
-    width:min(1180px,92%);
-    margin:28px auto 50px;
-}
-
-.card{
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:14px;
-    padding:24px;
-    box-shadow:var(--shadow);
-}
-
-.auth-box{
-    width:min(470px,100%);
-    margin:48px auto;
-}
-
-.auth-box h2{
-    margin-top:0;
-    margin-bottom:8px;
-    color:var(--primary);
-}
-
-label{
-    display:block;
-    margin:14px 0 6px;
-    font-size:14px;
-    font-weight:700;
-}
-
-input,
-select,
-textarea{
-    width:100%;
-    border:1px solid #cfd7e3;
-    border-radius:8px;
-    padding:11px 12px;
-    font-size:15px;
-    background:white;
-    color:var(--text);
-    outline:none;
-    transition:.2s;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-    border-color:#7e9fc6;
-    box-shadow:0 0 0 3px rgba(23,59,108,.08);
-}
-
-textarea{
-    resize:vertical;
-    min-height:100px;
-}
-
-.auth-box > button{
-    width:100%;
-    margin-top:18px;
-}
-
-.small{
-    font-size:13px;
-    color:var(--muted);
-    line-height:1.5;
-}
-
-a{
-    color:var(--primary);
-    text-decoration:none;
-    font-weight:600;
-}
-
-a:hover{
-    text-decoration:underline;
-}
-
-.password-box{
-    display:flex;
-    align-items:stretch;
-    gap:8px;
-}
-
-.password-box input{
-    flex:1;
-}
-
-.password-box .show-password{
-    width:auto;
-    margin:0;
-    white-space:nowrap;
-    padding:0 14px;
-    background:var(--surface-soft);
-    color:var(--primary);
-    border:1px solid var(--border);
-}
-
-.password-box .show-password:hover{
-    background:#edf2f7;
-    transform:none;
-}
-
-.hero{
-    background:linear-gradient(120deg,#173b6c,#285c96);
-    color:white;
-    border-radius:16px;
-    padding:34px;
-    margin-bottom:24px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:30px;
-    overflow:hidden;
-}
-
-.hero h1{
-    margin:8px 0 10px;
-    font-size:34px;
-}
-
-.hero p{
-    margin:0;
-    color:#e7edf6;
-    max-width:650px;
-    line-height:1.6;
-}
-
-.hero .badge{
-    display:inline-block;
-    background:rgba(255,255,255,.14);
-    border:1px solid rgba(255,255,255,.2);
-    color:white;
-    padding:6px 10px;
-    border-radius:999px;
-    font-size:12px;
-    font-weight:700;
-}
-
-.hero-img{
-    width:150px;
-    height:150px;
-    border-radius:50%;
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.12);
-    flex:none;
-}
-
-.products{
-    display:grid;
-    grid-template-columns:repeat(4,minmax(0,1fr));
-    gap:18px;
-}
-
-.product{
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:14px;
-    transition:.2s ease;
-}
-
-.product:hover{
-    box-shadow:var(--shadow);
-    transform:translateY(-2px);
-}
-
-.product img{
-    width:100%;
-    height:190px;
-    object-fit:contain;
-    background:#f7f9fb;
-    border-radius:9px;
-    margin-bottom:12px;
-}
-
-.product h3{
-    margin:4px 0 8px;
-    font-size:17px;
-}
-
-.product p{
-    margin:6px 0;
-    line-height:1.45;
-}
-
-.product .price{
-    font-size:20px;
-    font-weight:800;
-    color:var(--primary);
-}
-
-.product .stock{
-    color:var(--success);
-    font-size:13px;
-    font-weight:700;
-}
-
-.product button{
-    width:100%;
-    margin-top:8px;
-}
-
-.row{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:14px;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:10px;
-    overflow:hidden;
-}
-
-th,
-td{
-    padding:11px;
-    text-align:left;
-    border-bottom:1px solid var(--border);
-}
-
-th{
-    background:#f6f8fb;
-    color:#344054;
-    font-size:14px;
-}
-
-.message{
-    max-width:760px;
-    margin:0 auto 18px;
-    padding:12px 14px;
-    border:1px solid #b9cce2;
-    border-radius:9px;
-    background:#eef5fc;
-    color:#173b6c;
-    font-weight:600;
-}
-
-.password-rules{
-    margin-top:8px;
-    padding:10px 12px;
-    border-radius:8px;
-    background:#f8fafc;
-    border:1px solid var(--border);
-    font-size:13px;
-    line-height:1.6;
-}
-
-.good{
-    color:var(--success);
-}
-
-.bad{
-    color:var(--danger);
-}
-
-.actions{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-}
-
-.actions button{
-    width:auto;
-}
-
-.hidden{
-    display:none!important;
-}
-
-footer{
-    text-align:center;
-    padding:22px 12px;
-    color:var(--muted);
-    font-size:13px;
-}
-
-@media(max-width:900px){
-    .products{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-    }
-
-    .hero-img{
-        width:110px;
-        height:110px;
-    }
-}
-
-@media(max-width:650px){
-    header{
-        padding:10px 4%;
-        align-items:flex-start;
-        flex-direction:column;
-    }
-
-    nav{
-        width:100%;
-    }
-
-    .container{
-        width:94%;
-        margin-top:18px;
-    }
-
-    .auth-box{
-        margin:26px auto;
-        padding:20px;
-    }
-
-    .row{
-        grid-template-columns:1fr;
-    }
-
-    .products{
-        grid-template-columns:1fr;
-    }
-
-    .hero{
-        padding:24px;
-    }
-
-    .hero h1{
-        font-size:27px;
-    }
-
-    .hero-img{
-        display:none;
-    }
-
-    .password-box{
-        gap:6px;
-    }
-}
-
-.password-wrap{display:flex;gap:8px;align-items:stretch}
-.password-wrap input{flex:1;min-width:0}
-.password-toggle{flex:none;min-width:72px;background:#f8fafc;color:var(--primary);border:1px solid var(--border)}
-.password-toggle:hover{background:#edf2f7}
-.toolbar{display:flex;align-items:center;gap:14px;justify-content:space-between;margin:0 0 20px;flex-wrap:wrap}
-.toolbar>input{max-width:420px;flex:1}
-.chips{display:flex;gap:8px;flex-wrap:wrap}
-.chip{background:#fff;color:var(--primary);border:1px solid var(--border);border-radius:999px;padding:9px 15px}
-.chip.active,.chip:hover{background:var(--primary);color:#fff}
-.badge{display:inline-block;border-radius:999px;padding:5px 9px;background:#eef4fb;color:var(--primary);font-size:12px;font-weight:700}
-.product{display:flex;flex-direction:column;min-width:0;overflow:hidden}
-.product img{display:block;object-fit:cover;height:210px;margin:0 0 14px}
-.product h3{line-height:1.35;overflow-wrap:anywhere}
-.product .small{min-height:38px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.product .price{margin-top:auto;padding-top:10px}
-.product .seller{font-size:13px;color:var(--muted)}
+:root{--ink:#17231e;--forest:#193b2b;--deep:#10281d;--leaf:#c6f36b;--paper:#f5f3e9;--card:#fffef9;--line:#dedfd3;--muted:#777d70;--danger:#b42335;--success:#21754c;--shadow:0 18px 44px rgba(30,48,33,.09);--radius:22px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);background:radial-gradient(ellipse at 8% 0%,rgba(198,243,107,.19),transparent 28rem),var(--paper);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15px;line-height:1.55}
+body.modal-open{overflow:hidden}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer;border:1px solid var(--forest);border-radius:999px;padding:11px 18px;color:#fff;background:var(--forest);font-size:13px;font-weight:800;letter-spacing:.01em;box-shadow:0 4px 0 rgba(16,40,29,.08);transition:background .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease}
+button:hover{background:var(--deep);transform:translateY(-1px);box-shadow:0 8px 18px rgba(25,59,43,.15)}
+button:active{transform:translateY(0)}
+button:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #a7df45;outline-offset:3px}
+a{color:var(--forest);font-weight:750;text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+header{position:sticky;top:0;z-index:100;min-height:82px;padding:15px max(4%,calc((100% - 1280px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#fff;background:rgba(16,40,29,.97);border-bottom:4px solid var(--leaf);box-shadow:0 12px 32px rgba(16,40,29,.13);backdrop-filter:blur(16px)}
+header h2{margin:0;cursor:pointer;color:#fff;font-size:25px;font-weight:950;letter-spacing:-1.1px;display:flex;align-items:center;gap:10px;white-space:nowrap}
+header h2:before{content:"Y";display:grid;place-items:center;width:42px;height:42px;border-radius:14px;color:var(--deep);background:var(--leaf);font-size:23px;font-weight:1000;box-shadow:5px 5px 0 rgba(198,243,107,.17)}
+header h2:after{content:"EVERYDAY GOODS";display:block;align-self:flex-end;margin:0 0 3px 2px;color:#b3c1b4;font-size:9px;font-weight:800;letter-spacing:1.7px}
+nav{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+nav button{padding:9px 15px;border-color:rgba(255,255,255,.2);color:#e8f1e7;background:transparent;box-shadow:none;font-size:12px}
+nav button:hover{color:var(--deep);background:var(--leaf);border-color:var(--leaf);box-shadow:none}
+nav#guestNav button:last-child{color:var(--deep);background:var(--leaf);border-color:var(--leaf)}
+.badge{display:inline-flex;align-items:center;justify-content:center;min-width:24px;min-height:22px;padding:3px 8px;border-radius:999px;background:var(--leaf);color:var(--deep);font-size:10px;font-weight:950;letter-spacing:.07em}
+.container{width:min(1280px,92%);min-height:58vh;margin:35px auto 76px}
+#message{position:fixed;top:96px;left:50%;z-index:1500;transform:translateX(-50%);width:min(640px,calc(100% - 30px));pointer-events:none}
+.message{padding:14px 18px;border:1px solid #bfd49b;border-left:5px solid #a7df45;border-radius:15px;color:var(--deep);background:#fffff8;box-shadow:0 18px 40px rgba(16,40,29,.18);font-weight:750;animation:toast-in .22s ease-out}
+@keyframes toast-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.hidden{display:none!important}
+.card{min-width:0;padding:28px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow)}
+.auth-box{position:relative;overflow:hidden;width:min(510px,100%);margin:42px auto;padding:34px;border:1px solid #d9ddca;border-radius:27px;border-top:7px solid var(--leaf);box-shadow:0 26px 70px rgba(36,55,45,.13)}
+.auth-box:before{content:"";position:absolute;right:-58px;top:-78px;width:170px;height:170px;border-radius:50%;border:1px solid #cbd9b2;box-shadow:0 0 0 22px rgba(198,243,107,.09),0 0 0 44px rgba(198,243,107,.05);pointer-events:none}
+.auth-box h2{position:relative;margin:0 0 8px;font-size:30px;line-height:1.2;letter-spacing:-1.2px}
+.auth-box h2:after{content:"";display:block;width:45px;height:4px;margin-top:13px;border-radius:5px;background:#a7df45}
+label{display:block;margin:17px 0 7px;color:#3d4c40;font-size:12px;font-weight:900;letter-spacing:.04em}
+input,select,textarea{display:block;width:100%;min-width:0;border:1px solid #d8dccf;border-radius:13px;padding:13px 15px;color:var(--ink);background:#fffefa;outline:none;box-shadow:inset 0 1px 2px rgba(29,48,33,.025);transition:border-color .17s,box-shadow .17s,background .17s}
+input::placeholder,textarea::placeholder{color:#9a9f92}
+input:focus,select:focus,textarea:focus{border-color:#7b9b50;box-shadow:0 0 0 4px rgba(198,243,107,.25);background:#fff}
+input.is-invalid,select.is-invalid,textarea.is-invalid{border-color:#d04b5b;background:#fff9f8;box-shadow:0 0 0 4px rgba(180,35,53,.08)}
+input:disabled,select:disabled,textarea:disabled{opacity:.65;cursor:not-allowed}
+textarea{min-height:112px;resize:vertical}
+.auth-box>button{width:100%;margin-top:20px;padding:14px 18px;background:var(--forest);color:#fff}
+.auth-box>button:hover{background:var(--deep)}
+.password-wrap,.password-box{display:flex;gap:8px;align-items:stretch}
+.password-wrap input,.password-box input{flex:1;min-width:0}
+.password-toggle,.show-password{flex:none;width:auto;min-width:76px;margin:0;padding:0 14px;border:1px solid #d8dccf;color:var(--forest);background:#edf1e3;box-shadow:none}
+.password-toggle:hover,.show-password:hover{color:var(--deep);background:#e1ebd0;box-shadow:none}
+.password-hint{margin:8px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
+.small{color:var(--muted);font-size:13px;line-height:1.6}
+.auth-box .small{margin-bottom:0}
+.hero{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:28px;min-height:320px;margin-bottom:26px;padding:clamp(28px,5.5vw,66px);border:1px solid #294e37;border-radius:32px;color:#fff;background:linear-gradient(112deg,#10281d 0%,#1b422e 55%,#345a3b 100%);box-shadow:0 25px 60px rgba(16,40,29,.19)}
+.hero:after{content:"";position:absolute;z-index:-1;right:8%;top:-230px;width:470px;height:470px;border-radius:50%;border:1px solid rgba(255,255,255,.16);box-shadow:0 0 0 44px rgba(255,255,255,.035),0 0 0 88px rgba(255,255,255,.025),0 0 0 132px rgba(255,255,255,.018)}
+.hero>div:first-child{max-width:750px}
+.hero h1{max-width:740px;margin:18px 0 16px;font-size:clamp(36px,5vw,65px);font-weight:950;line-height:1.02;letter-spacing:-2.8px}
+.hero h1 em{color:var(--leaf);font-style:normal}
+.hero p{max-width:670px;margin:0;color:#d4e1d4;font-size:16px;line-height:1.8}
+.hero .badge{padding:8px 12px;color:var(--deep);background:var(--leaf);font-size:10px;letter-spacing:.12em}
+.hero-img{position:relative;flex:none;width:190px;height:190px;border-radius:44% 56% 48% 52%;border:1px solid rgba(255,255,255,.28);background:var(--leaf);transform:rotate(-9deg);box-shadow:inset -20px -20px 0 rgba(16,40,29,.08),0 25px 60px rgba(0,0,0,.15)}
+.hero-img:before,.hero-img:after{content:"";position:absolute;border:2px solid var(--forest);border-radius:50%}
+.hero-img:before{inset:23px}
+.hero-img:after{inset:48px;background:var(--forest);box-shadow:0 0 0 9px rgba(25,59,43,.12)}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:14px;margin:0 0 22px;border:1px solid var(--line);border-radius:20px;background:#fffef9;box-shadow:0 8px 22px rgba(30,48,33,.04)}
+.toolbar>input{flex:1;max-width:530px}
+.chips{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.chip{padding:9px 15px;border:1px solid #dfe3d5;color:#52604d;background:#f4f4eb;box-shadow:none;font-size:12px}
+.chip:hover{color:var(--forest);background:#e7efd8;box-shadow:none}
+.chip.active{color:var(--deep);background:var(--leaf);border-color:var(--leaf);box-shadow:none}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.product{display:flex;flex-direction:column;min-width:0;overflow:hidden;padding:14px;border:1px solid var(--line);border-radius:23px;background:var(--card);box-shadow:0 6px 20px rgba(30,48,33,.035);transition:transform .2s,border-color .2s,box-shadow .2s}
+.product:hover{transform:translateY(-5px);border-color:#c1d5a3;box-shadow:0 20px 40px rgba(30,48,33,.12)}
+.product img{display:block;width:100%;height:218px;margin:0 0 15px;padding:8px;object-fit:contain;border-radius:15px;background:linear-gradient(145deg,#f5f4e9,#ecefe2)}
+.product h3{margin:3px 0 8px;font-size:17px;line-height:1.35;letter-spacing:-.3px;overflow-wrap:anywhere}
+.product p{margin:5px 0;line-height:1.5}
+.product .small{min-height:39px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.product .price,.price{margin-top:auto;padding-top:10px;color:var(--forest);font-size:23px;font-weight:950;letter-spacing:-.5px}
+.product .seller{color:var(--muted);font-size:12px}
+.product .stock{color:var(--success);font-size:12px;font-weight:850}
 .product input[type=number]{margin-top:8px}
-.empty{grid-column:1/-1;text-align:center;padding:34px 18px;border:1px dashed var(--border);background:#fff;border-radius:14px;color:var(--muted)}
-.seller-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
-.seller-product-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0}
-.seller-product-card img{width:100%;height:160px;object-fit:cover;background:#f3f6fa;border-radius:10px}
-.seller-product-card h3{margin:4px 0;overflow-wrap:anywhere}
+.product button{width:100%;margin-top:12px;padding:12px}
+.empty{grid-column:1/-1;padding:42px 22px;border:1px dashed #c9d1bc;border-radius:20px;color:var(--muted);background:#fffef8;text-align:center}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#cartSection .card h2,#reviewsSection h2,#sellerSection h2,#sellerOrdersSection h2,#buyerOrdersSection h2,#adminSection>h2{margin:0 0 19px;font-size:29px;font-weight:950;letter-spacing:-1.1px;line-height:1.2}
+#cartSection .card h2:after,#reviewsSection h2:after,#sellerOrdersSection h2:after,#buyerOrdersSection h2:after,#adminSection>h2:after{content:"";display:block;width:42px;height:4px;margin-top:11px;border-radius:6px;background:#a7df45}
+#cartList{overflow-x:auto}
+#cartTotal{margin:22px 0;color:var(--forest);font-size:23px}
+#sellerSection .card{margin-bottom:24px}
+#productFormTitle{font-size:26px;letter-spacing:-.8px}
+.seller-form-title{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.seller-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:16px}
+.seller-product-card{display:flex;flex-direction:column;gap:8px;min-width:0;padding:15px;border:1px solid var(--line);border-radius:22px;background:var(--card);box-shadow:0 7px 22px rgba(30,48,33,.045);transition:transform .2s,box-shadow .2s}
+.seller-product-card:hover{transform:translateY(-3px);box-shadow:0 18px 34px rgba(30,48,33,.1)}
+.seller-product-card img{width:100%;height:190px;object-fit:contain;border-radius:14px;background:#f0f1e6}
+.seller-product-card h3{margin:4px 0;overflow-wrap:anywhere;font-size:17px}
 .seller-product-card .actions{margin-top:auto}
 .seller-product-card .actions button{flex:1}
-.image-uploader{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;align-items:center;margin:10px 0 14px;padding:14px;border:1px dashed #bdc9d8;border-radius:12px;background:#fafcff}
-.image-preview{width:150px;height:130px;object-fit:contain;background:#f0f4f8;border:1px solid var(--border);border-radius:10px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.actions button{width:auto}
+button.danger-button,.danger-button{background:#fff0ed;color:#9f2d2d;border-color:#f0c9c2;box-shadow:none}
+button.danger-button:hover,.danger-button:hover{background:#ffe0da;color:#7d1c1c;box-shadow:none}
+.image-uploader{display:grid;grid-template-columns:165px minmax(0,1fr);gap:16px;align-items:center;margin:10px 0 16px;padding:16px;border:1px dashed #c3cdb5;border-radius:18px;background:#f8f8ef}
+.image-preview{width:165px;height:140px;object-fit:contain;border:1px solid var(--line);border-radius:13px;background:#f0f1e6}
 .image-tools{display:flex;flex-direction:column;gap:9px;min-width:0}
-.image-tools input[type=file]{padding:8px;background:white}
-.image-help{font-size:12px;color:var(--muted);line-height:1.5}
-.seller-form-title{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.seller-form-title h2{margin:0}
-input:disabled,button:disabled{opacity:.55;cursor:not-allowed;transform:none}
-@media(max-width:900px){.seller-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:650px){.seller-product-grid{grid-template-columns:1fr}.image-uploader{grid-template-columns:1fr}.image-preview{width:100%;height:180px}.toolbar>input{max-width:none;width:100%}.product img{height:220px}}
-
-
-/* YoharajMart visual refresh */
-:root{--primary:#234b86;--primary-dark:#173563;--accent:#f5b83d;--bg:#f4f7fc;--surface:#fff;--surface-soft:#f8faff;--text:#152238;--muted:#68778d;--border:#e1e8f2;--shadow:0 12px 34px rgba(24,48,86,.09)}
-body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(ellipse at top left,#eaf1ff 0,transparent 42%),var(--bg);line-height:1.5}
-header{padding:14px max(4%,calc((100% - 1240px)/2));background:rgba(255,255,255,.92);backdrop-filter:blur(14px);box-shadow:0 4px 20px rgba(24,48,86,.05)}
-header h2{font-size:26px;font-weight:850;letter-spacing:-.8px;cursor:pointer}
-header h2:before{content:"P";display:inline-grid;place-items:center;width:34px;height:34px;margin-right:9px;border-radius:11px;background:linear-gradient(135deg,#234b86,#497ed0);color:white;font-size:19px;vertical-align:middle;box-shadow:0 5px 12px #234b862c}
-nav{gap:7px}
-nav button{border-radius:999px;padding:9px 15px;font-size:13px}
-nav button:hover{background:#edf3ff;color:var(--primary)}
-.container{width:min(1240px,92%);margin:32px auto 64px;min-height:58vh}
-.card{border-radius:20px;padding:28px;border-color:#e3eaf4;box-shadow:0 12px 34px rgba(24,48,86,.07)}
-.auth-box{max-width:480px;margin:42px auto}
-.auth-box h2{font-size:27px;letter-spacing:-.6px}
-label{color:#34445d}
-input,select,textarea{border-radius:11px;border-color:#d5deeb;padding:12px 14px}
-input:focus,select:focus,textarea:focus{border-color:#7198d8;box-shadow:0 0 0 4px rgba(55,105,185,.1)}
-button{border-radius:11px;padding:11px 17px;box-shadow:0 2px 5px rgba(19,46,84,.04)}
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #91b8f7;outline-offset:2px}
-button:hover{box-shadow:0 7px 16px rgba(35,75,134,.14)}
-.hero{position:relative;background:linear-gradient(120deg,#142e54 0%,#234b86 58%,#4677bb 100%);border-radius:24px;padding:clamp(26px,5vw,52px);min-height:260px;box-shadow:0 18px 38px rgba(27,62,112,.18)}
-.hero:after{content:"";position:absolute;width:300px;height:300px;right:8%;top:-115px;border:1px solid #ffffff2b;border-radius:50%;box-shadow:0 0 0 32px #ffffff08,0 0 0 64px #ffffff06;pointer-events:none}
-.hero h1{font-size:clamp(29px,4vw,43px);max-width:720px;letter-spacing:-1.2px;line-height:1.13}
-.hero p{font-size:15px;max-width:690px}
-.hero .badge{letter-spacing:.7px}
-.hero-img{z-index:1;width:160px;height:160px;background:radial-gradient(circle at 35% 30%,#ffffff55,#ffffff08 68%);box-shadow:inset 0 0 35px #ffffff12}
-.toolbar{padding:14px;background:#ffffffc9;border:1px solid var(--border);border-radius:16px;box-shadow:0 7px 22px rgba(24,48,86,.04)}
-.toolbar>input{max-width:500px}
-.chip{font-size:13px;padding:9px 15px}
-.products{gap:20px}
-.product{padding:15px;border-radius:17px;box-shadow:0 6px 20px rgba(24,48,86,.035);display:flex;flex-direction:column}
-.product:hover{transform:translateY(-4px);border-color:#c8d8ef;box-shadow:0 16px 32px rgba(24,48,86,.1)}
-.product img{height:205px;background:linear-gradient(145deg,#f7f9fd,#edf2f9);padding:8px;border-radius:12px}
-.product h3{font-size:16px;letter-spacing:-.2px}
-.product .price{font-size:22px;letter-spacing:-.4px}
-.product button{margin-top:auto;margin-top:10px}
-.message{border-radius:12px;box-shadow:0 6px 18px rgba(24,48,86,.05)}
-.seller-product-card{border-radius:17px;padding:15px;box-shadow:0 6px 20px rgba(24,48,86,.04);transition:.2s ease}
-.seller-product-card:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(24,48,86,.1)}
-.seller-product-card img{border-radius:12px}
-.image-uploader{border-radius:15px;background:#f8faff;border-color:#cad8ed}
-footer{border-top:1px solid var(--border);background:#ffffff80;padding:28px 12px}
-.hidden{display:none!important}
-#cartSection .card,#buyerOrdersSection,#sellerOrdersSection{overflow-x:auto}
-table{border-radius:13px}
-th{font-weight:750}
-td,th{padding:13px}
-@media(max-width:650px){header{align-items:stretch;gap:12px}header h2{font-size:23px}nav{gap:6px}nav button{padding:8px 11px;font-size:12px}.hero{border-radius:19px}.hero:after{right:-150px}.card{padding:20px}.toolbar{padding:10px}.products{gap:14px}.product img{height:220px}}
-/* Built-in FAQ helper: no external service or secret key required */
-.chat-launcher{position:fixed;right:22px;bottom:22px;z-index:1000;width:60px;height:60px;border:0;border-radius:50%;background:linear-gradient(135deg,#234b86,#477bd0);color:#fff;font-size:25px;box-shadow:0 12px 30px #234b8640;display:grid;place-items:center}
-.chat-launcher:hover{transform:translateY(-2px);background:linear-gradient(135deg,#173563,#315fa5)}
-.chat-panel{position:fixed;right:22px;bottom:94px;z-index:1000;width:min(370px,calc(100vw - 28px));height:min(520px,calc(100vh - 130px));background:#fff;border:1px solid #dce5f2;border-radius:20px;box-shadow:0 24px 70px #13294b35;display:flex;flex-direction:column;overflow:hidden}
-.chat-header{display:flex;align-items:center;gap:11px;padding:16px;background:linear-gradient(120deg,#173563,#315f9f);color:#fff}
-.chat-avatar{width:40px;height:40px;display:grid;place-items:center;border-radius:14px;background:#ffffff24;font-size:20px}
-.chat-heading{flex:1}.chat-heading strong{display:block;font-size:15px}.chat-heading span{font-size:12px;color:#dbe8fb}
-.chat-close{background:#ffffff18;border:1px solid #ffffff30;color:#fff;padding:7px 10px}
-.chat-messages{flex:1;overflow-y:auto;padding:15px;background:linear-gradient(#f7faff,#fff);display:flex;flex-direction:column;gap:10px}
-.chat-bubble{max-width:88%;padding:11px 13px;border-radius:15px;font-size:13px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
-.chat-bubble.bot{align-self:flex-start;background:#eef3fb;color:#22334c;border-bottom-left-radius:5px}
-.chat-bubble.user{align-self:flex-end;background:#234b86;color:#fff;border-bottom-right-radius:5px}
-.chat-quick{display:flex;gap:7px;flex-wrap:wrap;padding:0 13px 12px;background:#fff}
-.chat-quick button{font-size:12px;padding:7px 10px;border:1px solid #dce5f2;background:#fff;color:#234b86;border-radius:999px;box-shadow:none}
-.chat-quick button:hover{background:#edf3ff;transform:none}
-.chat-compose{display:flex;gap:8px;padding:12px;border-top:1px solid #e8edf5;background:#fff}
-.chat-compose input{min-width:0;font-size:13px;padding:10px 12px}
-.chat-compose button{padding:10px 13px}
-.chat-note{font-size:10px;color:#8591a3;padding:0 13px 10px;background:#fff}
-@media(max-width:480px){.chat-launcher{right:14px;bottom:14px}.chat-panel{right:10px;bottom:82px;width:calc(100vw - 20px);height:min(520px,calc(100vh - 105px))}}
+.image-tools input[type=file]{padding:9px;background:#fff}
+.image-help{color:var(--muted);font-size:12px;line-height:1.5}
+#adminSection{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:20px}
+#adminSection>h2{grid-column:1/-1}
+#adminSection>.card{min-width:0;padding:23px}
+#adminSection>.card h3{margin:0 0 15px;font-size:18px;letter-spacing:-.4px}
+#adminSection>.card:last-child{grid-column:1/-1}
+table{width:100%;min-width:560px;border-collapse:separate;border-spacing:0;overflow:hidden;color:var(--ink);background:#fffef9;border:1px solid var(--line);border-radius:15px}
+.table-wrap{width:100%;overflow-x:auto;border-radius:15px}
+th,td{padding:13px 15px;text-align:left;vertical-align:top;border-bottom:1px solid #e9e9de;font-size:13px}
+th{color:#415343;background:#edf1e3;font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:#fbfcf5}
+td button{padding:8px 12px;font-size:11px}
+#buyerOrders,#sellerOrders,#reviewsList,#adminUsers,#adminOrders,#adminProducts{min-width:0;overflow-x:auto}
+#reviewsList{display:grid;gap:12px}
+#reviewsList .card{padding:20px;box-shadow:none}
+#reviewsList article>span{display:inline-block;margin-left:9px;color:#a47a21;font-weight:900;letter-spacing:1px}
+#reviewForm{margin-top:24px;padding:22px;border:1px solid var(--line);border-radius:18px;background:#f8f8ef}
+#reviewForm h3{margin:0;font-size:21px}
+footer{padding:28px 15px;border-top:1px solid var(--line);color:#6f776b;background:#ecebdf;text-align:center;font-size:12px;font-weight:650;letter-spacing:.03em}
+.modal-overlay{position:fixed;inset:0;z-index:2000;display:none;place-items:center;padding:20px;background:rgba(9,25,16,.64);backdrop-filter:blur(7px)}
+.modal-overlay.open{display:grid}
+.password-modal{width:min(470px,100%);padding:30px;border:1px solid #e2e5d5;border-top:7px solid #f3b84b;border-radius:25px;background:#fffef9;box-shadow:0 28px 90px rgba(0,0,0,.28);animation:modal-in .2s ease-out}
+@keyframes modal-in{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.warning-mark{display:grid;place-items:center;width:48px;height:48px;border-radius:16px;color:#6b3b0a;background:#fff0c4;font-size:26px;font-weight:1000}
+.modal-eyebrow{margin:16px 0 5px;color:#8c6415;font-size:10px;font-weight:950;letter-spacing:.16em}
+.password-modal h2{margin:0 0 10px;font-size:27px;line-height:1.2;letter-spacing:-1px}
+.password-modal p{margin:0;color:#687064;font-size:14px}
+.password-rules{display:grid;gap:8px;margin:18px 0 22px;padding:0;list-style:none}
+.password-rules li{display:flex;gap:9px;align-items:flex-start;color:#9a2a35;font-size:13px;font-weight:750}
+.password-rules li:before{content:"×";display:grid;place-items:center;flex:none;width:20px;height:20px;border-radius:50%;color:#fff;background:#bf4550;font-size:14px}
+.password-rules li.rule-pass{color:#286441}
+.password-rules li.rule-pass:before{content:"✓";background:#39855a}
+.password-modal button{width:100%;padding:13px}
+@media(max-width:1050px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}.hero-img{width:150px;height:150px}header{padding-left:4%;padding-right:4%}#adminSection{grid-template-columns:1fr}#adminSection>h2,#adminSection>.card:last-child{grid-column:auto}}
+@media(max-width:760px){header{position:relative;align-items:flex-start;flex-direction:column;gap:12px;padding:16px 4%}header h2{font-size:23px}nav{width:100%;gap:6px}nav button{flex:1;padding:10px 8px}.container{width:94%;margin:20px auto 46px}.hero{min-height:0;padding:30px;border-radius:24px}.hero h1{font-size:clamp(35px,7vw,49px);letter-spacing:-1.8px}.hero-img{width:98px;height:98px}.hero-img:before{inset:13px}.hero-img:after{inset:30px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.product{padding:11px;border-radius:17px}.product img{height:185px}.card{padding:22px;border-radius:20px}.auth-box{margin:22px auto;padding:27px}.seller-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.image-uploader{grid-template-columns:130px minmax(0,1fr)}.image-preview{width:130px;height:125px}#adminSection>.card{padding:17px}th,td{padding:11px}}
+@media(max-width:520px){header h2:after{font-size:8px;letter-spacing:1px}nav button{font-size:11px;padding:9px 5px}.hero{display:block;padding:25px 23px}.hero:after{right:-260px;top:-190px}.hero h1{font-size:37px}.hero p{font-size:14px}.hero-img{display:none}.toolbar{align-items:stretch;padding:10px;border-radius:15px}.toolbar>input{max-width:none}.chips{gap:6px}.chip{flex:1;padding:9px 8px}.products{grid-template-columns:1fr}.product{padding:13px}.product img{height:225px}.product .small{min-height:0}.row{grid-template-columns:1fr;gap:2px}.seller-product-grid{grid-template-columns:1fr}.seller-product-card img{height:220px}.image-uploader{grid-template-columns:1fr}.image-preview{width:100%;height:180px}.password-wrap,.password-box{gap:6px}.password-toggle,.show-password{min-width:68px;padding:0 10px}.password-modal{padding:24px}.auth-box h2{font-size:27px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
 </style>
 
@@ -708,9 +326,9 @@ td,th{padding:13px}
     <section id="productsSection" class="hidden">
         <div class="hero">
             <div>
-                <span class="badge">YOHARAJMART MARKETPLACE</span>
-                <h1>Simple shopping, powered by a strong backend.</h1>
-                <p>Browse products added by sellers, search by category, add items to cart and place orders. The interface is intentionally clean so the project can focus on database and backend functionality.</p>
+                <span class="badge">A BETTER WAY TO SHOP EVERY DAY</span>
+                <h1>Good finds.<br>Fair prices.<br><em>Easy living.</em></h1>
+                <p>Discover everyday essentials from your seller community. Find your next favourite, build your cart, and keep your orders organised in one thoughtfully designed marketplace.</p>
             </div>
             <div class="hero-img"></div>
         </div>
@@ -848,29 +466,7 @@ td,th{padding:13px}
 
 <footer>© 2026 YoharajMart · Shopping made simpler, every day.</footer>
 
-<!-- YoharajMart help chat -->
-<button id="chatLauncher" class="chat-launcher" type="button" aria-label="Open YoharajMart help chat" aria-expanded="false" onclick="toggleChat()">✦</button>
-<section id="chatPanel" class="chat-panel hidden" aria-label="YoharajMart help chat">
-  <div class="chat-header">
-    <div class="chat-avatar">✦</div>
-    <div class="chat-heading"><strong>YoharajMart AI</strong><span>AI shopping assistant</span></div>
-    <button class="chat-close" type="button" aria-label="Close chat" onclick="toggleChat(false)">✕</button>
-  </div>
-  <div id="chatMessages" class="chat-messages" aria-live="polite">
-    <div class="chat-bubble bot">Hi! 👋 I’m YoharajMart AI. Ask me in English or Tanglish about shopping, cart, orders, account/OTP, or seller products. I’ll be clear when I can’t verify live account details.</div>
-  </div>
-  <div class="chat-quick">
-    <button type="button" onclick="chatQuick('How do I place an order?')">Place order</button>
-    <button type="button" onclick="chatQuick('How do I track my order?')">My orders</button>
-    <button type="button" onclick="chatQuick('How do I add a product as a seller?')">Seller help</button>
-    <button type="button" onclick="chatQuick('I need login or registration help')">Account help</button>
-  </div>
-  <div class="chat-compose">
-    <input id="chatInput" type="text" maxlength="400" placeholder="Ask a question…" aria-label="Type your question">
-    <button id="chatSendButton" type="button" onclick="sendChatMessage()">Send</button>
-  </div>
-  <div class="chat-note">Automated help · It cannot view private orders or make changes.</div>
-</section>
+
 
 
 <script>
@@ -1958,92 +1554,6 @@ if (productImageUrlInput) productImageUrlInput.addEventListener("input", () => {
     setProductImagePreview(productImageUrlInput.value.trim());
 });
 
-
-/* Server-backed AI shopping assistant */
-const chatHistory = [];
-
-function toggleChat(forceOpen) {
-    const panel = document.getElementById("chatPanel");
-    const launcher = document.getElementById("chatLauncher");
-    const shouldOpen = typeof forceOpen === "boolean" ? forceOpen : panel.classList.contains("hidden");
-    panel.classList.toggle("hidden", !shouldOpen);
-    launcher.setAttribute("aria-expanded", String(shouldOpen));
-    if (shouldOpen) document.getElementById("chatInput").focus();
-}
-
-function addChatBubble(text, who, extraClass = "") {
-    const list = document.getElementById("chatMessages");
-    const bubble = document.createElement("div");
-    bubble.className = "chat-bubble " + who + (extraClass ? " " + extraClass : "");
-    bubble.textContent = text;
-    list.appendChild(bubble);
-    list.scrollTop = list.scrollHeight;
-    return bubble;
-}
-
-async function sendChatMessage(message) {
-    const input = document.getElementById("chatInput");
-    const sendButton = document.getElementById("chatSendButton");
-    const text = (typeof message === "string" ? message : input.value).trim();
-    if (!text || sendButton.disabled) return;
-    if (text.length > 1200) {
-        addChatBubble("Please keep your question under 1,200 characters.", "bot");
-        return;
-    }
-
-    addChatBubble(text, "user");
-    input.value = "";
-    sendButton.disabled = true;
-    input.disabled = true;
-    const thinking = addChatBubble("Thinking…", "bot", "chat-thinking");
-
-    try {
-        const response = await fetch("/chatbot/ask", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            credentials: "same-origin",
-            body: JSON.stringify({
-                message: text,
-                history: chatHistory.slice(-8)
-            })
-        });
-        const raw = await response.text();
-        let data = {};
-        try { data = raw ? JSON.parse(raw) : {}; }
-        catch { throw new Error("The assistant returned an unreadable response."); }
-
-        thinking.remove();
-        if (!response.ok || data.status === "error" || !data.answer) {
-            addChatBubble(data.message || "The AI assistant is temporarily unavailable. Please try again.", "bot");
-            return;
-        }
-
-        addChatBubble(data.answer, "bot");
-        chatHistory.push({ role: "user", text: text });
-        chatHistory.push({ role: "model", text: data.answer });
-        if (chatHistory.length > 12) chatHistory.splice(0, chatHistory.length - 12);
-    } catch (error) {
-        thinking.remove();
-        addChatBubble(error.message || "Could not reach the AI assistant. Please try again.", "bot");
-    } finally {
-        sendButton.disabled = false;
-        input.disabled = false;
-        input.focus();
-    }
-}
-
-function chatQuick(message) {
-    if (document.getElementById("chatPanel").classList.contains("hidden")) toggleChat(true);
-    sendChatMessage(message);
-}
-
-const chatInput = document.getElementById("chatInput");
-if (chatInput) chatInput.addEventListener("keydown", event => {
-    if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault();
-        sendChatMessage();
-    }
-});
 
 checkLogin();
 </script>
