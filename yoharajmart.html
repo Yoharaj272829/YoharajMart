@@ -149,6 +149,246 @@ footer{padding:28px 15px;border-top:1px solid var(--line);color:#6f776b;backgrou
 @media(max-width:520px){header h2:after{font-size:8px;letter-spacing:1px}nav button{font-size:11px;padding:9px 5px}.hero{display:block;padding:25px 23px}.hero:after{right:-260px;top:-190px}.hero h1{font-size:37px}.hero p{font-size:14px}.hero-img{display:none}.toolbar{align-items:stretch;padding:10px;border-radius:15px}.toolbar>input{max-width:none}.chips{gap:6px}.chip{flex:1;padding:9px 8px}.products{grid-template-columns:1fr}.product{padding:13px}.product img{height:225px}.product .small{min-height:0}.row{grid-template-columns:1fr;gap:2px}.seller-product-grid{grid-template-columns:1fr}.seller-product-card img{height:220px}.image-uploader{grid-template-columns:1fr}.image-preview{width:100%;height:180px}.password-wrap,.password-box{gap:6px}.password-toggle,.show-password{min-width:68px;padding:0 10px}.password-modal{padding:24px}.auth-box h2{font-size:27px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
+
+/* ── NEW DASHBOARD DESIGN SYSTEM: midnight / tangerine / lilac ── */
+:root{--ink:#202139;--forest:#292949;--deep:#17172f;--leaf:#ff784f;--paper:#f4f3f8;--card:#fff;--line:#e1e0ec;--muted:#75758e;--danger:#bb344d;--success:#237b63;--shadow:0 18px 42px rgba(37,35,78,.075);--radius:20px}
+body{background:#f4f3f8;color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif}
+header{background:#17172f;border-bottom:4px solid #ff784f;box-shadow:0 12px 32px rgba(23,23,47,.18)}
+header h2:before{background:#ff784f;color:#17172f;box-shadow:5px 5px 0 rgba(255,120,79,.18)}
+header h2:after{color:#b9b9d0}
+nav button:hover{background:#ff784f;border-color:#ff784f;color:#17172f}
+nav#guestNav button:last-child{background:#ff784f;border-color:#ff784f}
+.badge{background:#ffe5dc;color:#943c26}
+.container{width:min(1320px,93%);margin:31px auto 70px}
+.card{border-color:#e3e1ee;border-radius:19px;background:#fff;box-shadow:0 13px 34px rgba(37,35,78,.07)}
+button{background:#292949;border-color:#292949;box-shadow:0 5px 0 rgba(41,41,73,.08)}
+button:hover{background:#17172f}
+input:focus,select:focus,textarea:focus{border-color:#a09bdd;box-shadow:0 0 0 4px rgba(160,155,221,.18)}
+input.is-invalid{border-color:#d84758;box-shadow:0 0 0 4px rgba(216,71,88,.1)}
+.auth-box{border-top-color:#ff784f;border-radius:25px}
+.auth-box h2:after{background:#ff784f}
+.password-toggle,.show-password,.secondary-button{color:#292949;background:#eeedf7;border-color:#dcd9ef;box-shadow:none}
+.password-toggle:hover,.show-password:hover,.secondary-button:hover{background:#e2def5;color:#17172f;box-shadow:none}
+#message{top:92px}
+.message{border-left-color:#ff784f;border-color:#f0c9bd;color:#54291f;box-shadow:0 18px 40px rgba(37,35,78,.18)}
+/* Storefront: warm editorial catalogue */
+#productsSection{--section-accent:#ff784f}
+#productsSection .hero{min-height:350px;border:0;border-radius:28px;background:linear-gradient(120deg,#242443,#373565 72%,#55508b);box-shadow:0 25px 52px rgba(37,35,78,.21)}
+#productsSection .hero:after{border-color:#ffffff20;box-shadow:0 0 0 44px #ffffff08,0 0 0 88px #ffffff05,0 0 0 132px #ffffff03}
+#productsSection .hero .badge{background:#ff784f;color:#241e2d}
+#productsSection .hero h1{max-width:680px;font-size:clamp(40px,5.2vw,70px);letter-spacing:-3px}
+#productsSection .hero h1 em{color:#ffcdbd}
+#productsSection .hero p{color:#e5e3fa}
+.hero-perks{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.hero-perks span{border:1px solid #ffffff35;border-radius:999px;padding:8px 12px;color:#fff;font-size:11px;font-weight:850;letter-spacing:.05em}
+#productsSection .hero-img{background:#ff784f;border-color:#ffffff35}
+#productsSection .hero-img:before,#productsSection .hero-img:after{border-color:#272747}
+#productsSection .hero-img:after{background:#272747}
+#productsSection .toolbar{border-radius:17px;background:#fff;box-shadow:0 9px 25px #2929490a}
+#productsSection .chip{border-radius:9px}
+#productsSection .chip.active{background:#292949;border-color:#292949;color:#fff}
+#productsList .product{border-radius:17px}
+#productsList .product:hover{border-color:#ffb7a1;box-shadow:0 20px 38px #29294917}
+#productsList .product img{background:linear-gradient(135deg,#f2f0fa,#fff0e9);border-radius:12px}
+#productsList .product .price{color:#d64d2b}
+/* Reusable dashboard title, adapted in each work area */
+.dashboard-intro{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(25px,4vw,46px);margin:0 0 25px;border-radius:26px;color:#fff}
+.dashboard-intro>div:first-child{max-width:740px}
+.dashboard-intro h1,.admin-masthead h1{margin:11px 0;font-size:clamp(34px,4vw,53px);line-height:1.04;letter-spacing:-2px;font-weight:950}
+.dashboard-intro h1 em,.admin-masthead h1 em{font-style:normal;color:#ffbda9}
+.dashboard-intro p,.admin-masthead p{max-width:650px;margin:0;color:inherit;opacity:.83;line-height:1.75}
+.dashboard-kicker,.panel-overline{display:inline-block;font-size:10px;font-weight:950;letter-spacing:.16em;text-transform:uppercase}
+.dashboard-kicker{color:#ffd5c8}
+.intro-symbol{display:grid;place-items:center;flex:none;width:138px;height:138px;border:1px solid #ffffff45;border-radius:37px;color:#fff;font-size:66px;font-weight:300;transform:rotate(7deg);background:#ffffff0e}
+.panel-heading{padding:2px 0 18px}
+.panel-heading h2,.orders-toolbar h2,.seller-inventory-heading h2{margin:5px 0 0;font-size:25px;letter-spacing:-.8px}
+.panel-overline{color:#8d8ca9}
+/* Cart: checkout desk with a clear order-summary rail */
+#cartSection{--cart-accent:#ff784f}
+.cart-intro{background:linear-gradient(112deg,#7a322e,#c54f42 70%,#e9785f)}
+.cart-intro h1 em{color:#ffe4b6}
+.cart-symbol{border-radius:50%;color:#6f302b;background:#ffd5a9;border:0}
+.cart-layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:22px;align-items:start}
+.cart-products-panel{min-width:0;padding:24px;border:1px solid #e4e0eb;border-radius:23px;background:#fff;box-shadow:0 12px 30px #2929490a}
+#cartList{overflow-x:auto}
+#cartList table{border:0;border-radius:0;min-width:560px}
+#cartList th{background:#f7f0ed;color:#633630}
+#cartList td{border-color:#f1e8e4}
+#cartList td button{border-radius:10px}
+.cart-summary{position:sticky;top:110px;padding:25px;border:1px solid #f2c6b6;border-radius:23px;background:#fff5f0;box-shadow:0 16px 33px #c54f4212}
+.cart-summary .panel-overline{color:#aa4b3e}
+.cart-grand-total{margin:14px 0;font-size:31px;line-height:1.15;font-weight:950;letter-spacing:-1.2px;color:#9e3e33;overflow-wrap:anywhere}
+.cart-summary p{color:#79625f;font-size:13px;line-height:1.7}
+.checkout-button{display:flex;justify-content:space-between;align-items:center;width:100%;margin-top:22px;padding:14px 16px;border-radius:13px;background:#b9493c;border-color:#b9493c}
+.checkout-button:hover{background:#8f302b}
+.continue-button{width:100%;margin-top:10px;padding:13px;border-radius:13px}
+.secure-note{display:flex;gap:9px;align-items:flex-start;margin-top:18px;padding-top:16px;border-top:1px solid #efd7ce;color:#785f5b;font-size:11px;line-height:1.6}
+.secure-note span{display:grid;place-items:center;flex:none;width:19px;height:19px;border-radius:50%;color:#fff;background:#57906d}
+/* Buyer orders: purple order-tracking cards */
+#buyerOrdersSection .orders-intro{background:linear-gradient(115deg,#302d67,#514a9d 74%,#7b73c7)}
+#buyerOrdersSection .orders-intro h1 em{color:#d9d3ff}
+.orders-symbol{border-radius:28px;background:#ffffff0c;transform:rotate(-7deg)}
+.orders-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:0 0 17px;padding:6px 2px 17px;border-bottom:1px solid #dcd9ee}
+.orders-toolbar .panel-overline{color:#7974b0}
+.orders-toolbar h2{margin-top:5px}
+.orders-live-label{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid #dedbf1;border-radius:999px;background:#fff;color:#625b8e;font-size:11px;font-weight:800}
+.orders-live-label i{width:7px;height:7px;border-radius:50%;background:#6bbf8b;box-shadow:0 0 0 4px #e4f5eb}
+.buyer-order-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.buyer-order-card{position:relative;overflow:hidden;padding:22px;border:1px solid #e2def8;border-radius:20px;background:linear-gradient(135deg,#fff 0%,#faf9ff 100%);box-shadow:0 10px 24px #36316f0a}
+.buyer-order-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:#7166c7}
+.order-card-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-bottom:17px;border-bottom:1px dashed #e1ddef}
+.order-label,.order-total-label{font-size:9px;font-weight:950;letter-spacing:.14em;color:#8c87ac}
+.order-id{font-size:15px;font-weight:950;color:#302d67}
+.status-pill{display:inline-flex;align-items:center;margin-left:auto;padding:6px 10px;border-radius:999px;background:#edebff;color:#5550a0;font-size:10px;font-weight:900;letter-spacing:.04em}
+.status-delivered{background:#e2f5e9;color:#226c46}
+.status-shipped{background:#e1efff;color:#285c9d}
+.status-processing,.status-pending{background:#fff0d6;color:#895b12}
+.order-card-middle{display:flex;align-items:flex-end;justify-content:space-between;gap:15px;padding:19px 0}
+.order-card-middle strong{font-size:29px;font-weight:950;letter-spacing:-1px;color:#302d67}
+.order-card-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#85809e;font-size:11px}
+.order-card-foot time{color:#4c486c;font-weight:750}
+.order-card-bottom{display:flex;align-items:center;gap:9px;margin-top:18px;padding-top:14px;border-top:1px solid #eeebf8;color:#696588;font-size:11px}
+.order-progress-mark{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#e2f5e9;color:#237b4b;font-weight:900}
+.order-empty{background:#fdfcff;border-color:#d9d4f4}
+/* Seller products: a two-column product workshop and inventory */
+#sellerSection{display:grid;grid-template-columns:minmax(315px,.78fr) minmax(0,1.4fr);gap:0 24px;align-items:start}
+#sellerSection>.seller-intro{grid-column:1/-1;background:linear-gradient(115deg,#172c42,#244f72 72%,#327b8d)}
+#sellerSection .seller-intro h1 em{color:#8be3dc}
+.seller-intro-mark{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;flex:none;width:150px;height:150px;border:1px solid #ffffff35;border-radius:26px;background:#ffffff0b;transform:rotate(5deg)}
+.seller-intro-mark span{display:grid;place-items:center;width:73px;height:73px;border-radius:22px;background:#8be3dc;color:#18354a;font-size:44px;font-weight:1000}
+.seller-intro-mark small{font-size:9px;letter-spacing:.14em;font-weight:900}
+#sellerSection>.seller-editor-card{grid-column:1;grid-row:2/span 2;position:sticky;top:16px;padding:23px;background:#fffefa;border-top:5px solid #e7a44a}
+#sellerSection .seller-form-title{align-items:flex-start}
+#sellerSection .seller-form-title h2{margin:5px 0;font-size:24px;letter-spacing:-.8px}
+#sellerSection .seller-form-title .small{max-width:150px}
+#sellerSection .panel-overline{color:#a36b23}
+#sellerSection .image-uploader{grid-template-columns:1fr;padding:12px;border-color:#ecd9b5;background:#fffaf0}
+#sellerSection .image-preview{width:100%;height:165px;background:#fbf0d8;border-color:#efdfc2}
+#sellerSection .product-save-button{width:100%;margin-top:13px;background:#223f5a;border-color:#223f5a;border-radius:12px}
+#sellerSection .product-save-button:hover{background:#152b40}
+#sellerSection #cancelEditButton{width:100%;margin-top:8px}
+.seller-inventory-heading{grid-column:2;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 13px;padding:4px 0 15px;border-bottom:1px solid #d8e3e6}
+.seller-inventory-heading .panel-overline{color:#267c86}
+.seller-inventory-heading h2{margin:6px 0 0;font-size:28px;letter-spacing:-1px}
+.inventory-caption{color:#7f8c94;font-size:11px;font-weight:750}
+#sellerProducts{grid-column:2;min-width:0}
+#sellerProducts .seller-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#sellerProducts .seller-product-card{border-color:#dce5e8;border-radius:18px;box-shadow:0 9px 21px #21485b0a}
+#sellerProducts .seller-product-card img{background:linear-gradient(135deg,#edf6f6,#f9f3e8);border-radius:12px}
+#sellerProducts .seller-product-card .price{color:#267c86}
+#sellerProducts .seller-product-card .actions button{border-radius:10px}
+#sellerProducts .seller-product-card .danger-button{background:#fff0ed;color:#9f2d2d;border-color:#f0c9c2}
+/* Seller fulfilment desk: teal status management cards */
+#sellerOrdersSection .seller-orders-intro{background:linear-gradient(115deg,#183f42,#1e7775 70%,#41a39a)}
+#sellerOrdersSection .seller-orders-intro h1 em{color:#b6fbdf}
+.seller-orders-symbol{border-radius:23px;color:#b6fbdf;transform:rotate(6deg)}
+#sellerOrdersSection .orders-toolbar{border-color:#cddfdf}
+#sellerOrdersSection .orders-toolbar .panel-overline{color:#28817b}
+#sellerOrdersSection .orders-live-label{border-color:#cce4de;color:#29756c}
+.seller-order-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.seller-order-card{padding:20px;border:1px solid #d1e4e1;border-radius:19px;background:#fff;box-shadow:0 10px 25px #245b570b}
+.seller-order-head{display:flex;align-items:center;gap:10px;padding-bottom:14px;border-bottom:1px solid #e8f0ee}
+.seller-order-ref{color:#247b77;font-size:11px;font-weight:950;letter-spacing:.08em}
+.seller-order-item{display:flex;align-items:center;gap:12px;margin:17px 0}
+.item-initial{display:grid;place-items:center;flex:none;width:48px;height:48px;border-radius:15px;color:#195e5b;background:#dff6ee;font-size:20px;font-weight:950}
+.seller-order-item h3{margin:0;color:#233c3b;font-size:16px;line-height:1.35}
+.seller-order-item p{margin:4px 0 0;color:#7b8d8c;font-size:12px}
+.seller-order-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 18px;padding:13px;border-radius:13px;background:#f1f8f5}
+.seller-order-metrics div{display:grid;gap:4px}
+.seller-order-metrics span{color:#79908c;font-size:9px;font-weight:950;letter-spacing:.1em}
+.seller-order-metrics strong{color:#204e4b;font-size:17px}
+.seller-order-card label{margin:0 0 8px;color:#45726e;font-size:10px}
+.status-update-row{display:flex;gap:8px;align-items:stretch}
+.status-update-row select{min-width:0;padding:10px;font-size:12px;border-radius:10px}
+.status-update-row button{flex:none;padding:10px 12px;border-radius:10px;background:#217b76;border-color:#217b76;font-size:11px}
+.status-update-row button:hover{background:#165b59}
+.seller-order-empty{border-color:#cde4e0;background:#f8fffc}
+/* Reviews: an editorial feedback and rating canvas */
+#reviewsSection .reviews-intro{background:linear-gradient(115deg,#6b3b37,#a45a51 72%,#d28471)}
+#reviewsSection .reviews-intro h1 em{color:#ffe0b9}
+.reviews-symbol{background:#ffe0b9;color:#8d4c43;border:0;border-radius:50%;font-size:64px}
+#reviewsSection .reviews-content{border-radius:25px;border-top:5px solid #d28471}
+#reviewsSection #reviewsProductTitle{margin:18px 0;font-size:28px;letter-spacing:-1px}
+#reviewsSection #reviewForm{border:1px solid #efdad3;background:#fff8f3;border-radius:18px}
+#reviewsSection #reviewForm button{background:#a45a51;border-color:#a45a51;border-radius:12px}
+#reviewsList .card{border-color:#eee0db;border-radius:16px;background:#fffdfa}
+#reviewsList article>span{color:#b98228}
+/* Admin control room: midnight surface and amber data tables */
+#adminSection{display:grid;grid-template-columns:1fr;gap:12px;padding:25px;border-radius:29px;color:#f5f3ff;background:#191a31;box-shadow:0 28px 65px rgba(23,23,47,.22)}
+#adminSection .admin-masthead{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:clamp(25px,4vw,45px);margin:-1px -1px 16px;border-radius:22px;background:linear-gradient(120deg,#292a4d,#3c3d66 67%,#674c69)}
+#adminSection .dashboard-kicker{color:#ffae8e}
+#adminSection .admin-masthead h1{margin:13px 0;font-size:clamp(38px,5vw,58px)}
+#adminSection .admin-masthead h1 em{color:#ffad83}
+#adminSection .admin-masthead p{color:#deddf3}
+.admin-orbit{position:relative;flex:none;width:150px;height:150px;border:1px solid #ffffff40;border-radius:50%;box-shadow:0 0 0 19px #ffffff09,0 0 0 39px #ffffff06}
+.admin-orbit span,.admin-orbit i,.admin-orbit b{position:absolute;display:block;border-radius:50%;background:#ff784f}
+.admin-orbit span{width:48px;height:48px;left:14px;top:22px}
+.admin-orbit i{width:27px;height:27px;right:19px;top:17px;background:#b5adff}
+.admin-orbit b{width:59px;height:59px;right:20px;bottom:20px;background:#ffc875}
+#adminSection .admin-section-label{display:flex;align-items:center;gap:14px;margin:16px 0 4px}
+.admin-section-label>span{display:grid;place-items:center;flex:none;width:38px;height:38px;border:1px solid #ffab8d66;border-radius:12px;color:#ffad8d;background:#ff784f17;font-size:12px;font-weight:950}
+.admin-section-label h2{margin:0;color:#f6f3ff;font-size:20px;letter-spacing:-.5px}
+.admin-section-label p{margin:3px 0 0;color:#aaa9c6;font-size:12px}
+#adminSection .admin-card{min-width:0;padding:15px;border:1px solid #383954;border-radius:18px;background:#22233e;box-shadow:none}
+#adminSection .admin-card .table-wrap{border:1px solid #393a56}
+#adminSection table{min-width:620px;border:0;border-radius:12px;background:#22233e;color:#f1efff}
+#adminSection th{color:#ffceb8;background:#30314d;border-bottom:1px solid #454560}
+#adminSection td{color:#e5e3f3;border-bottom:1px solid #383954}
+#adminSection tbody tr:hover td{background:#2b2c49}
+#adminSection .admin-card button{background:#ff784f;border-color:#ff784f;color:#25182a;box-shadow:none}
+#adminSection .admin-card button:hover{background:#ff9b7d}
+#adminUsers,#adminOrders,#adminProducts{overflow-x:auto}
+#adminSection .admin-card p{color:#c4c2dd}
+/* Tables outside admin follow a clean operations-table pattern */
+#cartSection table,#sellerOrdersSection table,#buyerOrdersSection table{border-color:#e4e0ee;border-radius:13px}
+#cartSection th,#sellerOrdersSection th,#buyerOrdersSection th{background:#f0eff9;color:#48476d}
+#cartSection td,#sellerOrdersSection td,#buyerOrdersSection td{border-color:#eeecf5}
+#cartSection .empty{border-color:#efcbbf;background:#fffaf7}
+/* Responsive rules per workspace */
+@media(max-width:1050px){
+  #sellerSection{grid-template-columns:minmax(280px,.8fr) minmax(0,1fr);gap:0 17px}
+  #sellerProducts .seller-product-grid{grid-template-columns:1fr}
+  .cart-layout{grid-template-columns:minmax(0,1fr) 270px}
+  .admin-orbit{width:120px;height:120px}
+}
+@media(max-width:760px){
+  .dashboard-intro{padding:27px;border-radius:22px}
+  .dashboard-intro h1{font-size:clamp(34px,7vw,47px);letter-spacing:-1.7px}
+  .intro-symbol{width:95px;height:95px;font-size:46px;border-radius:25px}
+  .seller-intro-mark{width:100px;height:100px}
+  .seller-intro-mark span{width:50px;height:50px;border-radius:15px;font-size:30px}
+  .seller-intro-mark small{font-size:7px}
+  .buyer-order-grid,.seller-order-grid{grid-template-columns:1fr}
+  #sellerSection{display:block}
+  #sellerSection>.seller-editor-card{position:static;margin-bottom:24px}
+  .seller-inventory-heading{margin-top:18px}
+  #sellerProducts .seller-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cart-layout{grid-template-columns:1fr}
+  .cart-summary{position:static;order:-1}
+  #adminSection{padding:13px;border-radius:20px}
+  #adminSection .admin-masthead{padding:25px 20px}
+  .admin-orbit{width:85px;height:85px}
+  .admin-orbit span{width:28px;height:28px}
+  .admin-orbit i{width:17px;height:17px;right:12px;top:10px}
+  .admin-orbit b{width:33px;height:33px;right:11px;bottom:11px}
+}
+@media(max-width:520px){
+  .dashboard-intro{display:block;padding:25px 22px}
+  .dashboard-intro h1{font-size:36px;letter-spacing:-1.4px}
+  .intro-symbol,.seller-intro-mark{display:none}
+  .dashboard-kicker{font-size:9px}
+  .seller-inventory-heading{align-items:flex-start;flex-direction:column}
+  #sellerProducts .seller-product-grid{grid-template-columns:1fr}
+  .seller-order-metrics{padding:11px}
+  .status-update-row{flex-direction:column}
+  .status-update-row button{width:100%}
+  .cart-products-panel{padding:16px;border-radius:18px}
+  .cart-summary{padding:21px}
+  .cart-grand-total{font-size:28px}
+  .order-card-middle strong{font-size:25px}
+  .admin-orbit{display:none}
+  #adminSection .admin-masthead h1{font-size:39px}
+}
 </style>
 
 
@@ -330,9 +570,10 @@ footer{padding:28px 15px;border-top:1px solid var(--line);color:#6f776b;backgrou
     <section id="productsSection" class="hidden">
         <div class="hero">
             <div>
-                <span class="badge">A BETTER WAY TO SHOP EVERY DAY</span>
-                <h1>Good finds.<br>Fair prices.<br><em>Easy living.</em></h1>
-                <p>Discover everyday essentials from your seller community. Find your next favourite, build your cart, and keep your orders organised in one thoughtfully designed marketplace.</p>
+                <span class="badge">THE EVERYDAY EDIT · YOHARAJMART</span>
+                <h1>Make room for<br><em>better finds.</em></h1>
+                <p>Explore practical picks from the seller community. Search the catalogue, compare details, and build a basket that works for you.</p>
+                <div class="hero-perks"><span>01 / Find it</span><span>02 / Add it</span><span>03 / Order it</span></div>
             </div>
             <div class="hero-img"></div>
         </div>
@@ -352,119 +593,116 @@ footer{padding:28px 15px;border-top:1px solid var(--line);color:#6f776b;backgrou
 
     <!-- CART -->
     <section id="cartSection" class="hidden">
-        <div class="card">
-            <h2>My Cart</h2>
-            <div id="cartList"></div>
-            <h3 id="cartTotal">Total: ₹0</h3>
-            <button onclick="placeOrder()">Place Order</button>
-        </div>
-    </section>
+  <div class="dashboard-intro cart-intro">
+    <div><span class="dashboard-kicker">CHECKOUT / 01</span><h1>Your bag,<br><em>your way.</em></h1><p>Check your items, adjust quantities, and review the total before placing your order.</p></div>
+    <div class="intro-symbol cart-symbol" aria-hidden="true">↗</div>
+  </div>
+  <div class="cart-layout">
+    <div class="cart-products-panel">
+      <div class="panel-heading"><span class="panel-overline">YOUR SELECTION</span><h2>Items in your bag</h2></div>
+      <div id="cartList"></div>
+    </div>
+    <aside class="cart-summary">
+      <span class="panel-overline">ORDER SUMMARY</span>
+      <div id="cartTotal" class="cart-grand-total">Total: ₹0</div>
+      <p>Make sure the quantities are correct before checking out.</p>
+      <button onclick="placeOrder()" class="checkout-button">Place order <span aria-hidden="true">→</span></button>
+      <button onclick="showProducts()" class="secondary-button continue-button">Continue shopping</button>
+      <div class="secure-note"><span>✓</span> Order details are confirmed by the store</div>
+    </aside>
+  </div>
+</section>
 
     <!-- BUYER ORDERS -->
     <section id="buyerOrdersSection" class="hidden">
-        <h2>My Orders</h2>
-        <div id="buyerOrders"></div>
-    </section>
+  <div class="dashboard-intro orders-intro">
+    <div><span class="dashboard-kicker">YOUR ACCOUNT / 02</span><h1>Every order,<br><em>in one place.</em></h1><p>Look back at your purchases and check the latest status shared by the store.</p></div>
+    <div class="intro-symbol orders-symbol" aria-hidden="true">◎</div>
+  </div>
+  <div class="orders-toolbar"><div><span class="panel-overline">PURCHASE HISTORY</span><h2>My orders</h2></div><span class="orders-live-label"><i></i> Account activity</span></div>
+  <div id="buyerOrders" class="buyer-order-grid"></div>
+</section>
 
     <!-- SELLER DASHBOARD -->
     <section id="sellerSection" class="hidden">
-
-        <div class="card">
-            <div class="seller-form-title"><h2 id="productFormTitle">Add Product</h2><span class="small">Add clear photos to help buyers choose</span></div>
-
-            <div class="row">
-                <div>
-                    <label>Name</label>
-                    <input id="productName">
-                </div>
-
-                <div>
-                    <label>Category</label>
-                    <input id="productCategory">
-                </div>
-            </div>
-
-            <label>Description</label>
-            <textarea id="productDescription"></textarea>
-
-            <div class="row">
-                <div>
-                    <label>Price</label>
-                    <input id="productPrice" type="number" min="0">
-                </div>
-
-                <div>
-                    <label>Stock</label>
-                    <input id="productStock" type="number" min="0">
-                </div>
-            </div>
-
-            <label>Product Image</label>
-            <div class="image-uploader">
-                <img id="productImagePreview" class="image-preview" src="https://placehold.co/300x260?text=Product+Photo" alt="Product image preview">
-                <div class="image-tools">
-                    <input id="productImageFile" type="file" accept="image/jpeg,image/png,image/webp">
-                    <span class="image-help">Choose JPG, PNG or WebP (max 5 MB). The image is resized before saving.</span>
-                    <label for="productImage">Or paste an image URL</label>
-                    <input id="productImage" type="url" placeholder="https://example.com/product.jpg">
-                    <button type="button" class="password-toggle" onclick="clearProductImage()">Remove image</button>
-                </div>
-            </div>
-
-            <button onclick="saveProduct()" id="productSaveButton">
-                Add Product
-            </button>
-
-            <button onclick="cancelEdit()" id="cancelEditButton" class="hidden">
-                Cancel Edit
-            </button>
-        </div>
-
-        <h2>My Products</h2>
-        <div id="sellerProducts"></div>
-
-    </section>
+  <div class="dashboard-intro seller-intro">
+    <div><span class="dashboard-kicker">SELLER WORKSPACE / 01</span><h1>Build your shelf.<br><em>Grow your business.</em></h1><p>Manage your catalogue, update stock, and keep your product listings ready for buyers.</p></div>
+    <div class="seller-intro-mark" aria-hidden="true"><span>Y</span><small>SELLER STUDIO</small></div>
+  </div>
+  <div class="card seller-editor-card">
+    <div class="seller-form-title"><div><span class="panel-overline">PRODUCT WORKSHOP</span><h2 id="productFormTitle">Add Product</h2></div><span class="small">Add clear photos to help buyers choose</span></div>
+    <div class="row">
+      <div><label>Name</label><input id="productName" placeholder="e.g. Wireless headphones"></div>
+      <div><label>Category</label><input id="productCategory" placeholder="e.g. Electronics"></div>
+    </div>
+    <label>Description</label><textarea id="productDescription" placeholder="Tell buyers what makes this product useful"></textarea>
+    <div class="row">
+      <div><label>Price (₹)</label><input id="productPrice" type="number" min="0" placeholder="0.00"></div>
+      <div><label>Available stock</label><input id="productStock" type="number" min="0" placeholder="0"></div>
+    </div>
+    <label>Product image</label>
+    <div class="image-uploader">
+      <img id="productImagePreview" class="image-preview" src="https://placehold.co/300x260?text=Product+Photo" alt="Product image preview">
+      <div class="image-tools">
+        <input id="productImageFile" type="file" accept="image/jpeg,image/png,image/webp">
+        <span class="image-help">Choose JPG, PNG or WebP (max 5 MB). The image is resized before saving.</span>
+        <label for="productImage">Or paste an image URL</label>
+        <input id="productImage" type="url" placeholder="https://example.com/product.jpg">
+        <button type="button" class="password-toggle" onclick="clearProductImage()">Remove image</button>
+      </div>
+    </div>
+    <button onclick="saveProduct()" id="productSaveButton" class="product-save-button">Add Product</button>
+    <button onclick="cancelEdit()" id="cancelEditButton" class="secondary-button hidden">Cancel Edit</button>
+  </div>
+  <div class="seller-inventory-heading"><div><span class="panel-overline">LIVE CATALOGUE</span><h2>My products</h2></div><span class="inventory-caption">Manage listings and stock</span></div>
+  <div id="sellerProducts"></div>
+</section>
 
     <!-- SELLER ORDERS -->
     <section id="sellerOrdersSection" class="hidden">
-        <h2>Seller Orders</h2>
-        <div id="sellerOrders"></div>
-    </section>
+  <div class="dashboard-intro seller-orders-intro">
+    <div><span class="dashboard-kicker">SELLER WORKSPACE / 02</span><h1>Orders in motion.</h1><p>Review buyer purchases and update fulfilment status from this workspace.</p></div>
+    <div class="intro-symbol seller-orders-symbol" aria-hidden="true">⇄</div>
+  </div>
+  <div class="orders-toolbar seller-orders-toolbar"><div><span class="panel-overline">FULFILMENT QUEUE</span><h2>Order desk</h2></div><span class="orders-live-label"><i></i> Status management</span></div>
+  <div id="sellerOrders" class="seller-order-grid"></div>
+</section>
 
     <!-- PRODUCT REVIEWS -->
     <section id="reviewsSection" class="hidden">
-        <div class="card">
-            <button class="password-toggle" onclick="showProducts()">← Back to products</button>
-            <h2 id="reviewsProductTitle">Product reviews</h2>
-            <div id="reviewsList"></div>
-            <div id="reviewForm" class="hidden">
-                <h3>Write a review</h3>
-                <label>Rating</label>
-                <select id="reviewRating"><option value="5">5 - Excellent</option><option value="4">4 - Good</option><option value="3">3 - Average</option><option value="2">2 - Poor</option><option value="1">1 - Bad</option></select>
-                <label>Comment</label>
-                <textarea id="reviewComment" maxlength="1000" placeholder="Share your experience after ordering this product"></textarea>
-                <button onclick="submitProductReview()">Submit review</button>
-            </div>
-            <p class="small">Only buyers who have ordered this product can submit a review.</p>
-        </div>
-    </section>
+  <div class="dashboard-intro reviews-intro">
+    <div><span class="dashboard-kicker">COMMUNITY / FEEDBACK</span><h1>Real experiences.<br><em>Useful reviews.</em></h1><p>Read what buyers thought about this product and share your own experience after ordering.</p></div>
+    <div class="intro-symbol reviews-symbol" aria-hidden="true">★</div>
+  </div>
+  <div class="card reviews-content">
+    <button class="secondary-button back-to-store" onclick="showProducts()">← Back to products</button>
+    <h2 id="reviewsProductTitle">Product reviews</h2>
+    <div id="reviewsList"></div>
+    <div id="reviewForm" class="hidden">
+      <h3>Write a review</h3>
+      <label>Rating</label>
+      <select id="reviewRating"><option value="5">5 - Excellent</option><option value="4">4 - Good</option><option value="3">3 - Average</option><option value="2">2 - Poor</option><option value="1">1 - Bad</option></select>
+      <label>Comment</label>
+      <textarea id="reviewComment" maxlength="1000" placeholder="Share your experience after ordering this product"></textarea>
+      <button onclick="submitProductReview()">Submit review</button>
+    </div>
+    <p class="small">Only buyers who have ordered this product can submit a review.</p>
+  </div>
+</section>
 
     <!-- ADMIN PANEL -->
     <section id="adminSection" class="hidden">
-        <h2>Admin Panel</h2>
-        <div class="card">
-            <h3>All users</h3>
-            <div id="adminUsers"><p>Loading users…</p></div>
-        </div>
-        <div class="card">
-            <h3>All orders</h3>
-            <div id="adminOrders"><p>Loading orders…</p></div>
-        </div>
-        <div class="card">
-            <h3>Product moderation</h3>
-            <div id="adminProducts"><p>Loading products…</p></div>
-        </div>
-    </section>
+  <div class="admin-masthead">
+    <div><span class="dashboard-kicker">YOHARAJMART / CONTROL ROOM</span><h1>Operations<br><em>overview.</em></h1><p>Monitor accounts, review orders, and moderate the marketplace from one place.</p></div>
+    <div class="admin-orbit" aria-hidden="true"><span></span><i></i><b></b></div>
+  </div>
+  <div class="admin-section-label"><span>01</span><div><h2>User directory</h2><p>Registered accounts and verification status</p></div></div>
+  <div class="card admin-card admin-users-card"><div id="adminUsers"><p>Loading users…</p></div></div>
+  <div class="admin-section-label"><span>02</span><div><h2>Order ledger</h2><p>Store-wide transaction overview</p></div></div>
+  <div class="card admin-card admin-orders-card"><div id="adminOrders"><p>Loading orders…</p></div></div>
+  <div class="admin-section-label"><span>03</span><div><h2>Product moderation</h2><p>Review listings and remove inappropriate products</p></div></div>
+  <div class="card admin-card admin-products-card"><div id="adminProducts"><p>Loading products…</p></div></div>
+</section>
 
 </div>
 
@@ -1248,29 +1486,20 @@ async function showBuyerOrders() {
         const box = document.getElementById("buyerOrders");
 
         if (!Array.isArray(orders) || orders.length === 0) {
-            box.innerHTML = "<p>No orders yet.</p>";
+            box.innerHTML = '<div class="empty order-empty"><span class="empty-icon">↗</span><h3>No orders just yet</h3><p>When you place an order, its details will appear here.</p><button onclick="showProducts()">Explore products</button></div>';
             return;
         }
 
-        box.innerHTML = `
-            <table>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Total</th>
-                    <th>Status</th>
-                    <th>Date</th>
-                </tr>
-
-                ${orders.map(order => `
-                    <tr>
-                        <td>${order.order_id}</td>
-                        <td>₹${Number(order.total).toFixed(2)}</td>
-                        <td>${escapeHtml(order.status)}</td>
-                        <td>${escapeHtml(order.created_at)}</td>
-                    </tr>
-                `).join("")}
-            </table>
-        `;
+        box.innerHTML = orders.map(order => {
+            const status = String(order.status || "PENDING");
+            const statusClass = status.toLowerCase().replace(/[^a-z0-9-]/g, "");
+            return '<article class="buyer-order-card">' +
+                '<div class="order-card-top"><span class="order-label">ORDER</span><span class="order-id">#' + escapeHtml(order.order_id) + '</span><span class="status-pill status-' + statusClass + '">' + escapeHtml(status) + '</span></div>' +
+                '<div class="order-card-middle"><span class="order-total-label">ORDER TOTAL</span><strong>₹' + Number(order.total || 0).toFixed(2) + '</strong></div>' +
+                '<div class="order-card-foot"><span>Placed on</span><time>' + escapeHtml(order.created_at || "Date unavailable") + '</time></div>' +
+                '<div class="order-card-bottom"><span class="order-progress-mark">✓</span><span>Keep this order number for reference.</span></div>' +
+            '</article>';
+        }).join("");
     } catch (error) {
         showMessage(error.message);
     }
@@ -1452,46 +1681,26 @@ async function showSellerOrders() {
         const box = document.getElementById("sellerOrders");
 
         if (!Array.isArray(orders) || orders.length === 0) {
-            box.innerHTML = "<p>No seller orders.</p>";
+            box.innerHTML = '<div class="empty seller-order-empty"><span class="empty-icon">↔</span><h3>Your order desk is clear</h3><p>Buyer purchases will show here when products are ordered.</p></div>';
             return;
         }
 
-        box.innerHTML = `
-            <table>
-                <tr>
-                    <th>Order</th>
-                    <th>Buyer</th>
-                    <th>Product</th>
-                    <th>Qty</th>
-                    <th>Price</th>
-                    <th>Status</th>
-                    <th>Change Status</th>
-                </tr>
-
-                ${orders.map(order => `
-                    <tr>
-                        <td>${order.order_id}</td>
-                        <td>${escapeHtml(order.buyer)}</td>
-                        <td>${escapeHtml(order.product)}</td>
-                        <td>${order.quantity}</td>
-                        <td>₹${Number(order.price).toFixed(2)}</td>
-                        <td>${escapeHtml(order.status)}</td>
-
-                        <td>
-                            <select id="status-${order.order_id}">
-                                <option value="PROCESSING">PROCESSING</option>
-                                <option value="SHIPPED">SHIPPED</option>
-                                <option value="DELIVERED">DELIVERED</option>
-                            </select>
-
-                            <button onclick="updateOrderStatus(${order.order_id})">
-                                Update
-                            </button>
-                        </td>
-                    </tr>
-                `).join("")}
-            </table>
-        `;
+        box.innerHTML = orders.map(order => {
+            const currentStatus = String(order.status || "PROCESSING").toUpperCase();
+            const statusClass = currentStatus.toLowerCase().replace(/[^a-z0-9-]/g, "");
+            const orderId = Number(order.order_id);
+            return '<article class="seller-order-card">' +
+                '<div class="seller-order-head"><span class="seller-order-ref">ORDER #' + escapeHtml(order.order_id) + '</span><span class="status-pill status-' + statusClass + '">' + escapeHtml(currentStatus) + '</span></div>' +
+                '<div class="seller-order-item"><span class="item-initial">' + escapeHtml(String(order.product || "P").trim().slice(0,1).toUpperCase()) + '</span><div><h3>' + escapeHtml(order.product) + '</h3><p>Buyer: ' + escapeHtml(order.buyer) + '</p></div></div>' +
+                '<div class="seller-order-metrics"><div><span>QUANTITY</span><strong>' + Number(order.quantity || 0) + '</strong></div><div><span>UNIT PRICE</span><strong>₹' + Number(order.price || 0).toFixed(2) + '</strong></div></div>' +
+                '<label for="status-' + orderId + '">Update fulfilment status</label>' +
+                '<div class="status-update-row"><select id="status-' + orderId + '">' +
+                    '<option value="PROCESSING"' + (currentStatus === "PROCESSING" ? " selected" : "") + '>Processing</option>' +
+                    '<option value="SHIPPED"' + (currentStatus === "SHIPPED" ? " selected" : "") + '>Shipped</option>' +
+                    '<option value="DELIVERED"' + (currentStatus === "DELIVERED" ? " selected" : "") + '>Delivered</option>' +
+                '</select><button onclick="updateOrderStatus(' + orderId + ')">Save status →</button></div>' +
+            '</article>';
+        }).join("");
     } catch (error) {
         showMessage(error.message);
     }
