@@ -14,6 +14,10 @@ RUN apt-get update \
         libjsoncpp-dev \
         uuid-dev \
         libsqlite3-dev \
+        default-libmysqlclient-dev \
+        libbrotli-dev \
+        libhiredis-dev \
+        libyaml-cpp-dev \
         libcurl4-openssl-dev \
         libpq-dev \
     && rm -rf /var/lib/apt/lists/*
