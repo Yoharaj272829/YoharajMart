@@ -13,6 +13,7 @@ RUN apt-get update \
         libdrogon-dev \
         libjsoncpp-dev \
         uuid-dev \
+        libsqlite3-dev \
         libcurl4-openssl-dev \
         libpq-dev \
     && rm -rf /var/lib/apt/lists/*
